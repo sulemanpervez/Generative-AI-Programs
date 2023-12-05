@@ -37,7 +37,7 @@ To get started with this repository, follow these steps:
 1. **Clone the Repository**: Use the following command to clone the repository to your local machine:
 
     ```bash
-    git clone https://github.com/your-username/ai-model-repo.git
+    git clone https://github.com/Suleman1411/Generative-AI-Programs
     ```
 
 2. **Explore the Code**: Dive into the codebase to understand the implemented AI models and custom-based models.
