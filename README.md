@@ -1,4 +1,4 @@
-# Gernerative AI Programs
+# Generative AI Programs
 
 ## Overview
 
