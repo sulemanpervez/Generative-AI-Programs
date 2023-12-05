@@ -1,8 +1,8 @@
-# AI Model Repository
+# Gernerative AI Programs
 
 ## Overview
 
-Welcome to the AI Model Repository! This open-source repository is dedicated to the development and sharing of AI models, including custom-based models. Feel free to copy and clone this repository to explore, contribute, and utilize the power of generative AI.
+Welcome to the Gernerative AI Programs! This open-source repository is dedicated to the development and sharing of AI models, including custom-based models. Feel free to copy and clone this repository to explore, contribute, and utilize the power of generative AI.
 
 ## Why Generative AI?
 
