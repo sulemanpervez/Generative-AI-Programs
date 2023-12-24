@@ -6,7 +6,7 @@ import streamlit as st
 import google.generativeai as genai
 import elevenlabs
 
-genai.configure(api_key="AIzaSyA781SBF8gVIb7vrN8Yz7KEbRyuXdE0blo")
+genai.configure(api_key="Gemini_API")
 elevenlabs.set_api_key("Elevenslab_API")
 voice = elevenlabs.Voice(  # elevens lab configurations
             voice_id="XrExE9yKIg1WjnnlVkGX",
