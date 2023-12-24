@@ -6,7 +6,7 @@ import streamlit as st
 import google.generativeai as genai
 import elevenlabs
 
-genai.configure(api_key="Gemini_API")
+genai.configure(api_key="AIzaSyA781SBF8gVIb7vrN8Yz7KEbRyuXdE0blo")
 elevenlabs.set_api_key("Elevenslab_API")
 voice = elevenlabs.Voice(  # elevens lab configurations
             voice_id="XrExE9yKIg1WjnnlVkGX",
@@ -106,7 +106,7 @@ def main():
             # elevenlabs.play(audio)
 
     elif image is not None and user_question:
-        model = genai.GenerativeModel("gemini-pro-vision")
+        model = genai.GenerativeModel("gevisionmini-pro-")
         response = model.generate_content([f"""Act as my fitness expert and diet nutritionist , At this moment, kindly assist with this {user_question}""", image], stream=True)
         response.resolve() 
         st.markdown(response.text)
