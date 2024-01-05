@@ -159,28 +159,31 @@ except sr.RequestError as e:
     return ""
 ```
 
-## 9. The Main Show
+### 9. The Main Show
 This is where the magic happens! Our main function sets up the chat history, creates the user interface, and handles user input, especially when there's an image involved.
 
-```python
 # Main Function - Health Mate Application
-# Initializing Chat History
+### Initializing Chat History
+```python
 if 'chat_history' not in st.session_state:
     st.session_state.chat_history = []
-
-# Streamlit UI Components
+```
+### Streamlit UI Components
+```python
 st.title('Health Mate')
 st.subheader('Your Personal Wellness Companion.')
-
-# Image Upload Section
+```
+### Image Upload Section
+```python
 with st.expander('Upload Image'):
     uploaded_file = st.file_uploader('Choose an image...', type=['jpg', 'jpeg', 'png'])
     if uploaded_file is not None:
         # Display the uploaded image
         image = Image.open(uploaded_file)
         st.image(image, caption='Uploaded Image', use_column_width=True)
-
-# Enable Speech Input Button
+```
+### Enable Speech Input Button
+```python
 if st.button('Enable Speech Input', key='speech_input_button'):
     user_question = st.chat_input('Ask your question:')
     user_question = recognize_speech()
@@ -190,8 +193,10 @@ else:
     user_question = st.chat_input('Ask your question:')
     if user_question is not None:
         st.write('Your Question:', user_question)
+```
 
-# Processing User Input
+### Processing User Input
+```python
 if image is None and user_question:
     # Process text-based queries without an image
     # ...
@@ -199,36 +204,44 @@ if image is None and user_question:
 elif image is not None and user_question:
     # Process queries with both image and text input
     # ...
-
-# Speech Recognition Function
+```
+### Speech Recognition Function
+```python
 def recognize_speech():
     # ...
-
+```
 # Processing User Input with Image Analysis
 
-# Case: No Image, User Question Present
+## Case: No Image, User Question Present
+```python
 model = genai.GenerativeModel(model_name="gemini-pro", generation_config=generation_config, safety_settings=safety_settings)
 chat = model.start_chat(history=[])
 response = chat.send_message(f"""Act as my fitness expert and diet nutritionist, responding with short, friendly, and easily understandable answers. Kindly answer me this {user_question}""", stream=True)
 response.resolve()
 st.markdown(response.text)
-
-# Save interaction in chat history
+```
+### Save interaction in chat history
+```python
 file_path = "chat_history.json"
 try:
     with open(file_path, "r") as file:
         chat_history = json.load(file)
 except FileNotFoundError:
     chat_history = []
-
+```
+### audio ouput
+```
 audio = elevenlabs.generate(text=response.text, voice="Matilda")
 elevenlabs.play(audio)
-
+```
+### session_state streamlit
+```
 st.session_state.chat_history.append({"user": user_question, "response": chat.history[1].parts[0]})
 with open(file_path, "w") as file:
     json.dump(chat_history, file, indent=2)
-
-# Case: Image and User Question Present
+```
+## Case: Image and User Question Present
+```
 model = genai.GenerativeModel("gemini-pro-vision")
 chat = model.start_chat(history=[])
 response = chat.send_message([f"""Act as my Expert nutritionist Doctor and fitness expert. If I provide an image of my nutrition, describe its components, benefits, and potential drawbacks, responding with short, friendly, and easily understandable. If I share an exercise routine image map, guide me on the correct way to perform each exercise, along with pros and cons of the routine. {user_question}""", image], stream=True)
@@ -249,10 +262,9 @@ elevenlabs.play(audio)
 st.session_state.chat_history.append({"user": user_question, "response": chat.history[1].parts[0]})
 with open(file_path, "w") as file:
     json.dump(chat_history, file, indent=2)
-
-## 10. Let's Roll!
+```
+# 10. Let's Roll!
 Finally, this line makes sure that our main function runs when we start the app. It's like saying, 'Let the show begin!'
-
 ```
 if __name__ == "__main__":
    main()
