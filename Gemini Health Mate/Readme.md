@@ -230,18 +230,18 @@ except FileNotFoundError:
     chat_history = []
 ```
 ### audio ouput
-```
+```python
 audio = elevenlabs.generate(text=response.text, voice="Matilda")
 elevenlabs.play(audio)
 ```
 ### session_state streamlit
-```
+```python
 st.session_state.chat_history.append({"user": user_question, "response": chat.history[1].parts[0]})
 with open(file_path, "w") as file:
     json.dump(chat_history, file, indent=2)
 ```
 ## Case: Image and User Question Present
-```
+```python
 model = genai.GenerativeModel("gemini-pro-vision")
 chat = model.start_chat(history=[])
 response = chat.send_message([f"""Act as my Expert nutritionist Doctor and fitness expert. If I provide an image of my nutrition, describe its components, benefits, and potential drawbacks, responding with short, friendly, and easily understandable. If I share an exercise routine image map, guide me on the correct way to perform each exercise, along with pros and cons of the routine. {user_question}""", image], stream=True)
@@ -265,7 +265,7 @@ with open(file_path, "w") as file:
 ```
 # 10. Let's Roll!
 Finally, this line makes sure that our main function runs when we start the app. It's like saying, 'Let the show begin!'
-```
+```python
 if __name__ == "__main__":
    main()
 ```
