@@ -1,6 +1,3 @@
-# HealthMate Wellness Companion Documentation
-
-## Introduction
 # HealthMate Wellness Companion
 Welcome to the documentation for Gemini HealthMate, your personal wellness companion. This guide covers the various components and functionalities of the HealthMate application.
 
