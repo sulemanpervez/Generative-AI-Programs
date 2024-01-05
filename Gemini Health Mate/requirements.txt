@@ -1,0 +1,8 @@
+streamlit
+requests
+Pillow
+SpeechRecognition
+pyaudio
+streamlit
+google.generativeai
+elevenlabs
