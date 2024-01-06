@@ -244,7 +244,7 @@ with open(file_path, "w") as file:
 ```python
 model = genai.GenerativeModel("gemini-pro-vision")
 chat = model.start_chat(history=[])
-response = chat.send_message([f"""Act as my Expert nutritionist Doctor and fitness expert. If I provide an image of my nutrition, describe its components, benefits, and potential drawbacks, responding with short, friendly, and easily understandable. If I share an exercise routine image map, guide me on the correct way to perform each exercise, along with pros and cons of the routine. {user_question}""", image], stream=True)
+response = chat.send_message([f"""Act as my Expert nutritionist Doctor and fitness expert. {user_question}""", image], stream=True)
 response.resolve()
 st.markdown(response.text)
 
