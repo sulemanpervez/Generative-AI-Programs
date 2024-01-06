@@ -16,7 +16,7 @@ st.set_page_config(
 )
 
 # Configure API keys for generative AI and Eleven Labs
-genai.configure(api_key="Gem)
+genai.configure(api_key="Gemini_API_Key)
 elevenlabs.set_api_key("Elevenslab_API")
 # Set up Eleven Labs voice configuration
 voice = elevenlabs.Voice(
