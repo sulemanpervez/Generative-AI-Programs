@@ -129,10 +129,10 @@ def main():
                 chat_history = json.load(file)
         except FileNotFoundError:
             chat_history = []
-        # audio = elevenlabs.generate(
-        #         text=response.text, 
-        #         voice="Matilda")
-        # elevenlabs.play(audio)
+        audio = elevenlabs.generate(
+                text=response.text, 
+                voice="Matilda")
+        elevenlabs.play(audio)
 
         st.session_state.chat_history.append({"user": user_question, "response": chat.history[1].parts[0]})
         with open(file_path, "w") as file:
@@ -151,10 +151,10 @@ def main():
         except FileNotFoundError:
             chat_history = []
             
-        # audio = elevenlabs.generate(
-        #         text=response.text, 
-        #         voice="Matilda")
-        # elevenlabs.play(audio)
+        audio = elevenlabs.generate(
+                text=response.text, 
+                voice="Matilda")
+        elevenlabs.play(audio)
 
         st.session_state.chat_history.append({"user": user_question, "response": chat.history[1].parts[0]})
         with open(file_path, "w") as file:
