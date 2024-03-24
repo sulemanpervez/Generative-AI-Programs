@@ -33,7 +33,6 @@ Generative AI offers several advantages for businesses aiming to enhance their p
 ## Getting Started
 
 To get started with this repository, follow these steps:
-
 1. **Clone the Repository**: Use the following command to clone the repository to your local machine:
 
     ```bash
